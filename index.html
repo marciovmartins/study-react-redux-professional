@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Olá mundo - React Professional</title>
+    <style>
+        .title {
+            color: green;
+        }
+
+        .subtitle {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script>
+    var e = React.createElement;
+
+    ReactDOM.render(
+        e(
+            "h1",
+            {className: "title"},
+            "Hello world!",
+            e("br"),
+            e(
+                "small",
+                {className: "subtitle"},
+                " Hello React!"
+            )
+        ),
+        document.getElementById("root")
+    )
+</script>
+
+</body>
+</html>
