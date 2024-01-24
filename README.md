@@ -1,4 +1,7 @@
 <!--suppress HtmlUnknownAnchorTarget -->
+
+<h1>React Professional</h1>
+
 <a href="https://react.dev/" title="Go to react.dev website"><img src="./docs/assets/react-color.svg" width="25" alt="Reac.JS logo icon"></a>
 
 <h2 id="table-of-contents">⤴️ Table of Contents</h2>
