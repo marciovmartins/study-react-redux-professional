@@ -14,9 +14,11 @@
 <body>
 
 <div id="root"></div>
+<div id="root2"></div>
 
 <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script>
     var e = React.createElement;
 
@@ -33,6 +35,16 @@
             )
         ),
         document.getElementById("root")
+    )
+</script>
+<script type="text/babel">
+    ReactDOM.render(
+        <h1 className="title">
+            Hello world!
+            <br/>
+            <small className="subtitle"> Hello React!</small>
+        </h1>,
+        document.getElementById("root2")
     )
 </script>
 
