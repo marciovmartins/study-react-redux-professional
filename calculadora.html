@@ -53,7 +53,7 @@
         button {
             border: 0;
             border-radius: 4px;
-            background-color: #efefef;
+            background-color: lightgrey;
             padding: 8px;
             cursor: pointer;
         }
@@ -66,9 +66,14 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
-    ReactDOM.render(
-        <div>
+    function Header() {
+        return (
             <div className="header">Calculator</div>
+        );
+    }
+
+    function Calculator() {
+        return (
             <div className="calculator">
                 <div className="display"></div>
                 <div className="keyboard">
@@ -84,7 +89,20 @@
                     <button>0</button>
                 </div>
             </div>
-        </div>,
+        );
+    }
+
+    function App() {
+        return (
+            <div>
+                <Header/>
+                <Calculator/>
+            </div>
+        );
+    }
+
+    ReactDOM.render(
+        <App/>,
         document.getElementById("root")
     )
 </script>
