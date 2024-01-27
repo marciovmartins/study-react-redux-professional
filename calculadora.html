@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background-color: #121212;
+            font-family: sans-serif;
+        }
+
+        .header {
+            background-color: #333;
+            text-align: center;
+            color: #fff;
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+        .calculator {
+            background-color: #fff;
+            margin: 40px auto;
+            max-width: 400px;
+            padding: 16px;
+            border-radius: 4px;
+        }
+
+        .display {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1.2em;
+        }
+
+        .keyboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 16px;
+            font-size: 1.2em;
+            margin-top: 16px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 4px;
+            background-color: #efefef;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Calculator - Professional React</title>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    ReactDOM.render(
+        <div>
+            <div className="header">Calculator</div>
+            <div className="calculator">
+                <div className="display"></div>
+                <div className="keyboard">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button>0</button>
+                </div>
+            </div>
+        </div>,
+        document.getElementById("root")
+    )
+</script>
+</body>
+</html>

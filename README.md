@@ -18,6 +18,6 @@ course <a href="https://www.udemy.com/course/react-redux-profissional" title="Go
 React Professional</a> made
 by <a href="https://www.udemy.com/user/brunonardini/" title="Go to Nardini's biografy at Udemy">Bruno Nardini</a>.
 
-The solution will be evolved incrementally, and you can check the solution commit by commit, video by video.
+The solution will be evolved incrementally, and you can check it commit by commit, video by video.
 
 <a href="#table-of-contents" title="go to the table of contents">Back to Top</a>
