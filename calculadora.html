@@ -80,6 +80,7 @@
 
     const Calculator = () => {
         const [display, setDisplay] = React.useState("")
+        const keyboard = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
 
         const handleNumberClick = (value) => {
             setDisplay(`${display}${value}`);
@@ -91,16 +92,13 @@
                     {display}
                 </div>
                 <div className="keyboard">
-                    <Button value="7" onNumberClick={handleNumberClick}/>
-                    <Button value="8" onNumberClick={handleNumberClick}/>
-                    <Button value="9" onNumberClick={handleNumberClick}/>
-                    <Button value="4" onNumberClick={handleNumberClick}/>
-                    <Button value="5" onNumberClick={handleNumberClick}/>
-                    <Button value="6" onNumberClick={handleNumberClick}/>
-                    <Button value="1" onNumberClick={handleNumberClick}/>
-                    <Button value="2" onNumberClick={handleNumberClick}/>
-                    <Button value="3" onNumberClick={handleNumberClick}/>
-                    <Button value="0" onNumberClick={handleNumberClick}/>
+                    {keyboard.map(value => (
+                        <Button
+                            key={value}
+                            value={value}
+                            onNumberClick={handleNumberClick}
+                        />
+                    ))}
                 </div>
             </div>
         )
