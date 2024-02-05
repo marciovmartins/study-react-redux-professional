@@ -44,7 +44,7 @@
 
         .keyboard {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             grid-gap: 16px;
             font-size: 1.2em;
             margin-top: 16px;
@@ -57,6 +57,15 @@
             padding: 8px;
             cursor: pointer;
         }
+
+        button.span2 {
+            grid-column: span 2;
+        }
+
+        button.primary {
+            background-color: #ffeec2;
+            color: #c49023;
+        }
     </style>
     <title>Calculator - Professional React</title>
 </head>
@@ -68,22 +77,32 @@
 <script type="text/babel">
     const Header = () => <div className="header">Calculator</div>;
 
-    const Button = (props) => (
+    const Button = ({value, onNumberClick, className}) => (
         <button
             onClick={() => {
-                props.onNumberClick(props.value)
+                onNumberClick(value)
             }}
+            className={className}
         >
-            {props.value}
+            {value}
         </button>
     );
 
     const Calculator = () => {
         const [display, setDisplay] = React.useState("")
-        const keyboard = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+        const keyboard = [
+            7, 8, 9, "/", "",
+            4, 5, 6, "*", "",
+            1, 2, 3, "-", "",
+            0, ".", "+", "=",
+        ];
 
-        const handleNumberClick = (value) => {
-            setDisplay(`${display}${value}`);
+        const handleClick = (value) => {
+            if (value === "=") {
+                setDisplay(eval(display));
+            } else {
+                setDisplay(`${display}${value}`);
+            }
         };
 
         return (
@@ -92,13 +111,18 @@
                     {display}
                 </div>
                 <div className="keyboard">
-                    {keyboard.map(value => (
-                        <Button
-                            key={value}
-                            value={value}
-                            onNumberClick={handleNumberClick}
-                        />
-                    ))}
+                    {keyboard.map(value => {
+                        const span2Class = value === 0 ? "span2" : "";
+                        const primaryClass = isNaN(value) ? "primary" : "";
+                        return (
+                            <Button
+                                key={value}
+                                value={value}
+                                onNumberClick={handleClick}
+                                className={`${span2Class} ${primaryClass}`}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         )
