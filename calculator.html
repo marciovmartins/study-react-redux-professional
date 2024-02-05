@@ -97,11 +97,12 @@
             1, 2, 3, "-", "",
             0, ".", "+", "=",
         ];
+        const doTheMatch = () => setDisplay(eval(display));
 
         const handleClick = (value) => {
             switch (value) {
                 case "=":
-                    setDisplay(eval(display));
+                    doTheMatch();
                     break;
                 case "C":
                     setDisplay("");
@@ -124,6 +125,13 @@
                         const {value} = event.target;
                         if (calcRegex.test(value)) {
                             setDisplay(value);
+                        }
+                    }}
+                    onKeyPress={event => {
+                        if (event.key === "Enter") {
+                            doTheMatch();
+                        } else if (event.key.toLocaleLowerCase() === "c") {
+                            setDisplay("");
                         }
                     }}
                 />
