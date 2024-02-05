@@ -115,9 +115,12 @@
 
         return (
             <div className="calculator">
-                <div className="display">
-                    {display}
-                </div>
+                <input
+                    type="text"
+                    className="display"
+                    value={display}
+                    onChange={(event) => {setDisplay(event.target.value);}}
+                />
                 <div className="keyboard">
                     {keyboard.map(value => {
                         const span2Class = value === 0 ? "span2" : "";
