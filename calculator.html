@@ -75,6 +75,7 @@
 <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
+    const calcRegex = /^([0-9]|-|\+|\*|\/|\.)*$/
     const Header = () => <div className="header">Calculator</div>;
 
     const Button = ({value, onNumberClick, className}) => (
@@ -119,7 +120,12 @@
                     type="text"
                     className="display"
                     value={display}
-                    onChange={(event) => {setDisplay(event.target.value);}}
+                    onChange={(event) => {
+                        const {value} = event.target;
+                        if (calcRegex.test(value)) {
+                            setDisplay(value);
+                        }
+                    }}
                 />
                 <div className="keyboard">
                     {keyboard.map(value => {
