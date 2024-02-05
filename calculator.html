@@ -91,17 +91,25 @@
     const Calculator = () => {
         const [display, setDisplay] = React.useState("")
         const keyboard = [
-            7, 8, 9, "/", "",
-            4, 5, 6, "*", "",
+            7, 8, 9, "/", "C",
+            4, 5, 6, "*", "Del",
             1, 2, 3, "-", "",
             0, ".", "+", "=",
         ];
 
         const handleClick = (value) => {
-            if (value === "=") {
-                setDisplay(eval(display));
-            } else {
-                setDisplay(`${display}${value}`);
+            switch (value) {
+                case "=":
+                    setDisplay(eval(display));
+                    break;
+                case "C":
+                    setDisplay("");
+                    break;
+                case "Del":
+                    setDisplay(display.substring(0, display.length - 1));
+                    break;
+                default:
+                    setDisplay(`${display}${value}`);
             }
         };
 
