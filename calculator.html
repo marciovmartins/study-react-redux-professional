@@ -96,6 +96,7 @@
     const Calculator = () => {
         const [display, setDisplay] = React.useState("");
         const [error, setError] = React.useState();
+        const [showAd, toggleAd] = React.useState(false);
 
         React.useEffect(() => {
             if (error) {
@@ -111,11 +112,27 @@
             }
         };
 
+        const buildButtonKey = value => {
+            const span2Class = value === 0 ? "span2" : "";
+            const primaryClass = isNaN(value) ? "primary" : "";
+            return (
+                <Button
+                    key={value}
+                    value={value}
+                    onNumberClick={handleClick}
+                    className={`${span2Class} ${primaryClass}`}
+                />
+            );
+        }
+
         const keyboard = [
             7, 8, 9, "/", "C",
             4, 5, 6, "*", "Del",
-            1, 2, 3, "-", "",
+            1, 2, 3, "-", "Ad",
             0, ".", "+", "=",
+        ];
+        const advancedKeys = [
+            "(", ")"
         ];
 
         const handleClick = (value) => {
@@ -128,6 +145,9 @@
                     break;
                 case "Del":
                     setDisplay(display.substring(0, display.length - 1));
+                    break;
+                case "Ad":
+                    toggleAd(!showAd);
                     break;
                 default:
                     setDisplay(`${display}${value}`);
@@ -157,19 +177,13 @@
                 {error && (
                     <p className="error">{error}</p>
                 )}
+                {showAd && (
+                    <div className="keyboard">
+                        {advancedKeys.map(buildButtonKey)}
+                    </div>
+                )}
                 <div className="keyboard">
-                    {keyboard.map(value => {
-                        const span2Class = value === 0 ? "span2" : "";
-                        const primaryClass = isNaN(value) ? "primary" : "";
-                        return (
-                            <Button
-                                key={value}
-                                value={value}
-                                onNumberClick={handleClick}
-                                className={`${span2Class} ${primaryClass}`}
-                            />
-                        );
-                    })}
+                    {keyboard.map(buildButtonKey)}
                 </div>
             </div>
         )
