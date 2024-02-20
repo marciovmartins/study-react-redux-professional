@@ -102,7 +102,14 @@
             1, 2, 3, "-", "",
             0, ".", "+", "=",
         ];
-        const doTheMatch = () => {
+
+        React.useEffect(() => {
+            if (error) {
+                setError();
+            }
+        }, [display]);
+
+        const doTheMath = () => {
             try {
                 setDisplay("" + eval(display));
             } catch (err) {
@@ -113,7 +120,7 @@
         const handleClick = (value) => {
             switch (value) {
                 case "=":
-                    doTheMatch();
+                    doTheMath();
                     break;
                 case "C":
                     setDisplay("");
@@ -140,7 +147,7 @@
                     }}
                     onKeyPress={event => {
                         if (event.key === "Enter") {
-                            doTheMatch();
+                            doTheMath();
                         } else if (event.key.toLocaleLowerCase() === "c") {
                             setDisplay("");
                         }
