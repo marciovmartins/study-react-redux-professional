@@ -149,7 +149,7 @@
             0, ".", "+", "=",
         ];
         const advancedKeys = [
-            "(", ")", "Hist"
+            "(", ")", "Hist", "", "AC"
         ];
 
         const handleClick = (value) => {
@@ -169,6 +169,10 @@
                     break;
                 case "Hist":
                     toggleHist(!showHist);
+                    break;
+                case "AC":
+                    setDisplay("");
+                    setHistory([]);
                     break;
                 default:
                     setDisplay(`${display}${value}`);
