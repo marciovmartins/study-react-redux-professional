@@ -27,6 +27,8 @@ The solution will be evolved incrementally, and you can check it commit by commi
 
 <ul>
     <li><a href="https://github.com/marciovmartins/react-redux-professional/tree/section-1" title="go to section 1 in github react-redux-professional project">Section 1: Introduction and Basic Concepts</a></li>
+    <li>Section 2: Exercises and Tests - Basic Concepts</li>
+    <li><a href="https://github.com/marciovmartins/react-redux-professional/tree/section-3" title="go to section 3 in github react-redux-professional project">Section 3: Fundamentals</a></li>
 </ul>
 
 <a href="#table-of-contents" title="go to the table of contents">Back to Top</a>
